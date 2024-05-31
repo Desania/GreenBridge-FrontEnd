@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import NavvBarr from "../BootStrap/NavvBarr";
+import baseURL from '../config/apiConfig';
 
 function ProfileCustomer() {
     const navigate = useNavigate();
@@ -42,14 +43,14 @@ function ProfileCustomer() {
     }, []);
 
     async function checkIfUserExists() {
-        const url = `http://localhost:2025/customer/fetchcustomerprof?email=${obj.email}`;
+        const url = `${baseURL}/customer/fetchcustomerprof?email=${obj.email}`;
         try {
             let response = await axios.get(url);
             if (response.data.length > 0) {
                 setIsExistingUser(true);
                 const { email, name, contact, address, village, city, pin, info, picpath } = response.data[0];
                 setObj({ ...obj, email, name, contact, address, village, city, pin, info });
-                setPrevimg("http://localhost:2025/" + picpath);
+                setPrevimg(`${baseURL}/` + picpath);
             } else {
                 setIsExistingUser(false);
             }
@@ -63,7 +64,7 @@ function ProfileCustomer() {
         for (let prop in obj) {
             fd.append(prop, obj[prop]);
         }
-        const url = "http://localhost:2025/customer/saveprofile";
+        const url = `${baseURL}/customer/saveprofile`;
         try {
             let respObj = await axios.post(url, fd, { headers: { 'Content-Type': 'multipart/form-data' } });
             console.log(JSON.stringify(respObj.data));
@@ -83,7 +84,7 @@ function ProfileCustomer() {
         for (let prop in obj) {
             fd.append([prop], obj[prop]);
         }
-        const url = `http://localhost:2025/customer/customerprofupdate`;
+        const url = `${baseURL}/customer/customerprofupdate`;
         try {
             let respObj = await axios.post(url, fd, { headers: { 'Content-Type': 'multipart/form-data' } });
             console.log(JSON.stringify(respObj.data));

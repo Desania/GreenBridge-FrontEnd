@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Container, Table, Button } from 'react-bootstrap';
 import NavvBarr from "../BootStrap/NavvBarr";
+import baseURL from '../config/apiConfig';
 
 function UserManager() {
   const { eid } = useParams();
@@ -16,7 +17,7 @@ function UserManager() {
 
  
   useEffect(() => {
-    let url = 'http://localhost:2025/admin/userProfiles'; // Adjusted URL to fetch all profiles
+    let url = `${baseURL}/admin/userProfiles`; // Adjusted URL to fetch all profiles
     axios.get(url).then(response => {
       const respdata = response.data;
       if (respdata.status && respdata.profile) {
@@ -33,7 +34,7 @@ function UserManager() {
   }, []);
 
   const updateUserStatus = (email, newStatus) => {
-    axios.post('http://localhost:2025/admin/updateStatus', { email, status: newStatus })
+    axios.post(`${baseURL}/admin/updateStatus`, { email, status: newStatus })
       .then(response => {
         if (response.data.status) {
           if(newStatus==="1")

@@ -12,6 +12,7 @@ import github from "../Pics/github.png"
 import inst from "../Pics/inst.png"
 import twit from "../Pics/twit.png"
 import NavvBarr from "../BootStrap/NavvBarr"
+// import baseURL from '../config/apiConfig';
 
 import fresh from "../Pics/fresh.jpg"
 function DashCustomer() 

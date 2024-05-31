@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import axios from "axios";
 import { useParams,useNavigate } from "react-router-dom";
 import NavvBarr from "../BootStrap/NavvBarr";
-
+import baseURL from '../config/apiConfig';
 
 function ListProducts() {
   
@@ -46,7 +46,7 @@ function ListProducts() {
     for (let prop in obj) {
       fd.append(prop, obj[prop]);
     }
-    const url = "http://localhost:2025/grower/listproductsave";
+    const url = `${baseURL}/grower/listproductsave`;
     try {
       let resp = await axios.post(url, fd, { headers: { 'Content-Type': 'multipart/form-data' } });
       console.log(JSON.stringify(resp.data));
@@ -70,7 +70,7 @@ function ListProducts() {
 
   async function fetchAndFillForm(id)
    {
-    let url = `http://localhost:2025/grower/find?id=${id}`;
+    let url = `${baseURL}/grower/find?id=${id}`;
     try {
       let response = await axios.get(url);
       let { status, products } = response.data;
@@ -78,7 +78,7 @@ function ListProducts() {
         {
         const { email, productCategory, product,price, per,village,city, moreInfo,ppic} = products[0];
         setObj({ ...obj, email, productCategory, product, price, per,village,city, moreInfo });
-        setPrevImg("http://localhost:2025/"+ ppic);
+        setPrevImg(`${baseURL}/`+ ppic);
       } else {
         console.log("No products found.");
       }
@@ -93,7 +93,7 @@ function ListProducts() {
     for(let prop in obj){
         fd.append([prop],obj[prop]);
     }
-    const url = `http://localhost:2025/grower/listproductupdate?id=${id}`;
+    const url = `${baseURL}/grower/listproductupdate?id=${id}`;
        let respObj= await axios.post(url,fd,{headers:{'Content-Type':'multipart/form-data'}});
        console.log(JSON.stringify(respObj.data)) ;
        alert("Product Deatils Updated Successfully");

@@ -15,6 +15,7 @@ import inst from "../Pics/inst.png"
 import twit from "../Pics/twit.png"
 import NavvBarr from "../BootStrap/NavvBarr"
 import { Chart } from "react-google-charts";
+import baseURL from '../config/apiConfig';
 function DashAdmin() 
 {
     var navigate=useNavigate();
@@ -46,7 +47,7 @@ function DashAdmin()
     }
     async function fetchCount() {
       try {
-        const url = `http://localhost:2025/admin/fetchusercount`;
+        const url = `${baseURL}/admin/fetchusercount`;
         let respObj = await axios.get(url);
         const newData = [
           ["utype", "Count"],
@@ -62,7 +63,7 @@ function DashAdmin()
    // fetching category
   async function fetchCategory() {
     try {
-      const url = `http://localhost:2025/admin/fetchproductcategory`;
+      const url = `${baseURL}/admin/fetchproductcategory`;
       let respObj = await axios.get(url);
       // alert(JSON.stringify(respObj.data))
       // Extract the data array

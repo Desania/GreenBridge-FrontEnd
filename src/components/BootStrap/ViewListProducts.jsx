@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import NavvBarr from "../BootStrap/NavvBarr";
+import baseURL from '../config/apiConfig';
 
 function ViewListProducts() {
   let {eid}=useParams();
@@ -19,7 +20,7 @@ function ViewListProducts() {
  //  alert({eid});
  useEffect(()=>{
   // alert(eid);
-    let url=`http://localhost:2025/grower/viewproducts?email=${eid}`
+    let url=`${baseURL}/grower/viewproducts?email=${eid}`
     axios.get(url).then(response=>
         {
      const respdata=response.data;
@@ -41,7 +42,7 @@ function ViewListProducts() {
 const handleDelete=(id)=>{
 // alert("Product deleted with id"+id); 
 alert("Are You Sure You want To Delete The Product");
-let url=`http://localhost:2025/grower/deleteproduct?id=${id}`;
+let url=`${baseURL}/grower/deleteproduct?id=${id}`;
 axios.get(url).then((response)=>{
  if(response.data.status){
      alert("Product Deleted");

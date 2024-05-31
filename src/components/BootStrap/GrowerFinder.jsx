@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import NavvBarr from "../BootStrap/NavvBarr"
+import baseURL from '../config/apiConfig';
 
 function GrowerFinder() {
   const [cities, setCities] = useState([]);
@@ -24,7 +25,7 @@ function GrowerFinder() {
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const response = await axios.get('http://localhost:2025/customer/fetchCity');
+        const response = await axios.get(`${baseURL}/customer/fetchCity`);
         setCities(response.data);
       } catch (error) {
         console.error('Error fetching cities:', error);
@@ -38,7 +39,7 @@ function GrowerFinder() {
     const fetchVillages = async () => {
       if (selectedCity) {
         try {
-          const response = await axios.get(`http://localhost:2025/customer/fetchVillages?city=${selectedCity}`);
+          const response = await axios.get(`${baseURL}/customer/fetchVillages?city=${selectedCity}`);
           setVillages(response.data);
         } catch (error) {
           console.error('Error fetching villages:', error);
@@ -53,7 +54,7 @@ function GrowerFinder() {
     const fetchProductCategories = async () => {
       if (selectedCity && selectedVillage) {
         try {
-          const response = await axios.get(`http://localhost:2025/customer/fetchProductCategories?city=${selectedCity}&village=${selectedVillage}`);
+          const response = await axios.get(`${baseURL}/customer/fetchProductCategories?city=${selectedCity}&village=${selectedVillage}`);
           setProductCategories(response.data);
         } catch (error) {
           console.error('Error fetching product categories:', error);
@@ -68,7 +69,7 @@ function GrowerFinder() {
     const fetchProducts = async () => {
       if (selectedCity && selectedVillage && selectedProductCategory) {
         try {
-          const response = await axios.get(`http://localhost:2025/customer/fetchProducts?city=${selectedCity}&village=${selectedVillage}&productCategory=${selectedProductCategory}`);
+          const response = await axios.get(`${baseURL}/customer/fetchProducts?city=${selectedCity}&village=${selectedVillage}&productCategory=${selectedProductCategory}`);
           setProducts(response.data);
         } catch (error) {
           console.error('Error fetching products:', error);
@@ -98,7 +99,7 @@ function GrowerFinder() {
   const doFetch = async () => {
     if (selectedProduct) {
       try {
-        const response = await axios.get(`http://localhost:2025/customer/fetchproduct?product=${selectedProduct}`);
+        const response = await axios.get(`${baseURL}/customer/fetchproduct?product=${selectedProduct}`);
         setProductDetails(response.data);
       } catch (error) {
         console.error('Error fetching product details:', error);
@@ -109,7 +110,7 @@ function GrowerFinder() {
   const doFetchGrower = async (email) => {
     setShow(true);
     try {
-      const response = await axios.get(`http://localhost:2025/customer/fetchgrower?email=${email}`);
+      const response = await axios.get(`${baseURL}/customer/fetchgrower?email=${email}`);
       if (response.data.status) {
         setGrowerDetails(response.data.Data[0]);
       } else {

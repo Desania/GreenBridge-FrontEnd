@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import { Container, Table, Button } from 'react-bootstrap';
 import axios from "axios";
 import NavvBarr from './NavvBarr';
+import baseURL from '../config/apiConfig';
 
 function ManageGrower() {
     const [growerProfiles, setGrowerProfiles] = useState([]); // Fixed state declaration
 
     useEffect(() => {
-        let url = 'http://localhost:2025/admin/growerprofiles'; // Adjusted URL to fetch all profiles
+        let url = `${baseURL}/admin/growerprofiles`; // Adjusted URL to fetch all profiles
         axios.get(url).then(response => {
           const respdata = response.data;
           if (respdata.status && respdata.growerProfile) {

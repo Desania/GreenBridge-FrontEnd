@@ -71,15 +71,15 @@
         
 
         async function doFetchwithAxios() {
-            const url = `http://localhost:2025/grower/fetchprof?email=${obj.email}`;
+            const url = `${baseURL}/grower/fetchprof?email=${obj.email}`;
 
             let response=await axios.get(url);
                 //   alert(JSON.stringify(response.data));
                 
                 const {email,name,contact,address,village,city,Aadhaar,info,picpath,idpicpath}=response.data[0];
                 setObj({...obj,email,name,contact,address,village,city,Aadhaar,info})
-                setPrevimg("http://localhost:2025/"+picpath);
-                setPrevid("http://localhost:2025/"+idpicpath);
+                setPrevimg(`${baseURL}/`+picpath);
+                setPrevid(`${baseURL}/`+idpicpath);
         }
 
         
@@ -108,7 +108,7 @@
             for(let prop in obj){
                 fd.append([prop],obj[prop]);
             }
-            const url = `http://localhost:2025/grower/profupdate`;
+            const url = `${baseURL}/grower/profupdate`;
             let respObj= await axios.post(url,fd,{headers:{'Content-Type':'multipart/form-data'}});
             //    alert(JSON.stringify(respObj.data));
             alert("Profile Updated SuccessFully"); 

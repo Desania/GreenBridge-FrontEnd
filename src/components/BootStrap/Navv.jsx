@@ -80,7 +80,7 @@ function navv()
               return;
           }
   
-          const url = `http://localhost:2025/product/fetchUserType?email=${email}&pwd=${pwd}&utype=${utype}`;
+          const url = `${baseURL}/product/fetchUserType?email=${email}&pwd=${pwd}&utype=${utype}`;
           const resp = await axios.get(url);
   
          if(resp.data)
