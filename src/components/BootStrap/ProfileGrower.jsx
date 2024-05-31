@@ -74,15 +74,13 @@
             const url = `${baseURL}/grower/fetchprof?email=${obj.email}`;
 
             let response=await axios.get(url);
-                //   alert(JSON.stringify(response.data));
-                
+                  alert(JSON.stringify(response.data));
+                alert(obj.email);
                 const {email,name,contact,address,village,city,Aadhaar,info,picpath,idpicpath}=response.data[0];
-                setObj({...obj,email,name,contact,address,village,city,Aadhaar,info})
+                setObj({...obj,email,name,contact,address,village,city,Aadhaar,info});
                 setPrevimg(`${baseURL}/`+picpath);
                 setPrevid(`${baseURL}/`+idpicpath);
         }
-
-        
         
         let dochange = (event) => {
             let { name, value } = event.target;
