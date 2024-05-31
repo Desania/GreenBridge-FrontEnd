@@ -14,6 +14,7 @@ import {useNavigate} from "react-router-dom";
 // import green3 from "../Pics/green3.png";
 import green4 from "../Pics/green4.png"
 import { ModalBody } from 'react-bootstrap';
+import baseURL from '../config/apiConfig';
 
 
 function navv()
@@ -53,7 +54,7 @@ function navv()
         
     // }
     async function doSave() {
-      const url = `http://localhost:2025/product/save?email=${obj.email}&pwd=${obj.pwd}&utype=${obj.utype}`;
+      const url = `${baseURL}/product/save?email=${obj.email}&pwd=${obj.pwd}&utype=${obj.utype}`;
       
       try {
           let respObj = await axios.get(url);
