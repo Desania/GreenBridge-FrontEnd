@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:2025";
-// const baseURL = "https://g2c-h8zd.onrender.com";
+// const baseURL = "http://localhost:2025";
+const baseURL="https://greenbridge.onrender.com";
 
 const publicAxios= axios.create({baseURL});
 
