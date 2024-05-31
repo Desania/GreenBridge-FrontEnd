@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Container, Table, Button } from 'react-bootstrap';
 import axios from "axios";
 import NavvBarr from './NavvBarr';
-import baseURL from '../config/apiConfig';
+import baseURL from '../config/apiConfig';  
 
 function ManageGrower() {
     const [growerProfiles, setGrowerProfiles] = useState([]); // Fixed state declaration

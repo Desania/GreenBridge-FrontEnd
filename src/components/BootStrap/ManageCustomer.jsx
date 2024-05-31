@@ -6,7 +6,6 @@ import axios from "axios";
 import baseURL from '../config/apiConfig';
 
 import NavvBarr from './NavvBarr';
-import baseURL from '../config/apiConfig';
 function ManageGrower() {
     const [customerProfile, setCustomerProfile] = useState([]); // Fixed state declaration
 
