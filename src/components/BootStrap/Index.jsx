@@ -24,7 +24,8 @@ function Index()
     <div>
         <Navv></Navv>
        
- <center>
+<Container>
+<center>
     <div style={{height:"500px",width:"1000px",marginTop:"100px",display:"flex",flexDirection:"row"}}>
       <div style={{height:"500px",width:"500px",paddingTop:"100px"}}>
         <center>
@@ -137,6 +138,7 @@ function Index()
      
         </div>
 </center>
+</Container>
       <p style={{marginLeft:"30px",backgroundColor:"#F6F5F2",width:"1350px"}}>&#169; All Rights Are Reserved..</p>
 </div>
   );

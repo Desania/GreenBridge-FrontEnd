@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-// import './index.css'
+import './index.css'
+import "./App.css"
 // import Index from './components/BootStrap/Index.jsx'
 // import ProfileGrower from './components/BootStrap/ProfileGrower.jsx'
 // import ListProducts from './components/BootStrap/ListProducts.jsx'
