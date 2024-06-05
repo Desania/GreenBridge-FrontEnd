@@ -161,7 +161,7 @@ function navv()
              <option aria-readonly>Select</option>
             <option value="Grower">Grower</option>
             <option value="Customer">Customer</option>
-            <option value="admin">admin</option>
+            {/* <option value="admin">admin</option> */}
         </Form.Select>
         </Col>
       </Form.Group>
