@@ -1,5 +1,6 @@
 
-import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Index from './components/BootStrap/Index.jsx'
 // import navv from './components/BootStrap/Navv.jsx'
 import DashCustomer from './components/BootStrap/DashCustomer.jsx'
@@ -13,6 +14,7 @@ import DashAdmin from './components/BootStrap/DashAdmin.jsx'
 import UserManager from './components/BootStrap/UserManager.jsx'
 import ManageGrower from './components/BootStrap/ManageGrower.jsx'
 import ManageCustomer from './components/BootStrap/ManageCustomer.jsx'
+import SpinnerComponent from './components/BootStrap/SpinnerComponent.jsx';
 
 
 const router=createBrowserRouter(
@@ -74,11 +76,8 @@ const router=createBrowserRouter(
 )
 function App()
  {
-
-
   return (
     <>
-
      <RouterProvider  router={router}/>
 
     </>
