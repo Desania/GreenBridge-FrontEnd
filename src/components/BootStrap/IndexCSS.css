@@ -1,0 +1,70 @@
+/* App.css */
+.welcome-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .welcome-text {
+    flex: 1;
+    padding-top: 100px;
+  }
+  
+  .welcome-image {
+    flex: 1;
+  }
+  
+  .welcome-title {
+    font-size: 3rem;
+    font-family: "Lucida Handwriting";
+    text-align: left;
+  }
+  
+  .welcome-description {
+    font-size: 18px;
+    font-family: Arial;
+    color: gray;
+    text-align: left;
+  }
+  
+  .responsive-img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .service-col {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .service-img {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+  }
+  
+  .service-title {
+    font-size: 25px;
+    font-family: Arial;
+    color: black;
+  }
+  
+  @media (max-width: 768px) {
+    .welcome-section {
+      flex-direction: column;
+    }
+  
+    .welcome-text {
+      text-align: center;
+      padding-top: 20px;
+    }
+  
+    .welcome-title,
+    .welcome-description {
+      text-align: center;
+    }
+  }
+  
