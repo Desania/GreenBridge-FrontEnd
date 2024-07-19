@@ -5,6 +5,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { useNavigate, useParams } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavvBarr()
  {
@@ -14,18 +17,22 @@ function NavvBarr()
       }
   return (
     <>
-    <Navbar className="bg-body-dark justify-content-between" style={{ width: "1360px", height: "90px", backgroundColor: "#184603", marginTop: "0px", paddingRight: "50px" }}>
-    <Form inline style={{ display: "flex", flexDirection: "row" }}>
-      <h1 style={{ fontSize: "30px", color: "white", marginTop: "10px", marginLeft: "70px", fontFamily: "Lucida Handwriting", float: "left" }}>GreenBridge</h1>
-    </Form>
-    <Form inline>
-      <Row>
-        <Col xs="auto">
+     
+    <Navbar collapseOnSelect expand="lg" style={{backgroundColor:" rgb(19, 87, 53)"}}>
+      <Container>
+        <Navbar.Brand style={{fontSize:"30px",color:"white",marginTop:"10px",marginLeft:"40px",fontFamily:"Lucida Handwriting ",float:"left"}}>Green Bridge</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+          </Nav>
+          <Nav className="mx-3 mb-2">
           <Button variant="warning" onClick={goBack}>Back</Button>
-        </Col>
-      </Row>
-    </Form>
-  </Navbar>
+          </Nav>
+        
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+   
     </>
   )
 }

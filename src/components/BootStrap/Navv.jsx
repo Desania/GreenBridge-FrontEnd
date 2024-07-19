@@ -129,10 +129,10 @@ function navv()
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
           </Nav>
-          <Nav className="mx-3 mb-2">
+          <Nav className="mx-2 ">
           <Button variant="warning"  onClick={handleShowS}>SignUp</Button>
           </Nav>
-          <Nav className="mx-3 mb-2">
+          <Nav className="mx-2 ">
           <Button variant="warning" onClick={handleShowL}>Log In</Button>
           </Nav>
         </Navbar.Collapse>

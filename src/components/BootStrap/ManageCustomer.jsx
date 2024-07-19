@@ -1,68 +1,70 @@
-import React from 'react';
-// import NavvBarr from './NavvBarr';
-import { useState, useEffect } from 'react';
-import { Container, Table, Button } from 'react-bootstrap';
-import axios from "axios";
+
+    import React, { useState, useEffect } from 'react';
+import { Container, Table } from 'react-bootstrap';
+import axios from 'axios';
 import baseURL from '../config/apiConfig';
-
 import NavvBarr from './NavvBarr';
-function ManageGrower() {
-    const [customerProfile, setCustomerProfile] = useState([]); // Fixed state declaration
+import './ManageCustomerCSS.css'; // Import the CSS file
 
-    useEffect(() => {
-        let url = `${baseURL}/admin/customerprofiles`; // Adjusted URL to fetch all profiles
-        axios.get(url).then(response => {
-          const respdata = response.data;
-          if (respdata.status && respdata.customerProfiles) {
-            console.log(respdata.customerProfiles)
-            setCustomerProfile(respdata.customerProfiles); // Fixed set function
-          } else {
-            console.log('No profiles found in response:', respdata);
-          }
-        })
-        .catch((error) => {
-          console.log('Error fetching profiles', error);
-        });
-    }, []);
+function ManageCustomer() {
+  const [customerProfile, setCustomerProfile] = useState([]);
 
-    return (
-        <>
-            <NavvBarr></NavvBarr>
-            <center><h1>Customer Profile Information</h1></center>
-            <Container className="mt-4">
-                <Table striped bordered hover>
-                    <thead>
-                        <tr style={{textAlign:"center"}}>
-                            <th>S.No</th>
-                            <th>Email Id</th>
-                            <th>Name</th>
-                            <th>Contact</th>
-                            <th>Address</th>
-                            <th>Village</th>
-                            <th>City</th>
-                            <th>Pin Code</th>
-                            <th>Info</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {customerProfile && customerProfile.map((customerProfiles, index) => (
-                            <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{customerProfiles.email}</td>
-                                <td>{customerProfiles.name}</td>
-                                <td>{customerProfiles.contact}</td>
-                                <td>{customerProfiles.address}</td>
-                                <td>{customerProfiles.village}</td>
-                                <td>{customerProfiles.city}</td>
-                                <td>{customerProfiles.pin}</td>
-                                <td>{customerProfiles.info}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </Table>
-            </Container>
-        </>
-    );
+  useEffect(() => {
+    let url = `${baseURL}/admin/customerprofiles`;
+    axios.get(url).then(response => {
+      const respdata = response.data;
+      if (respdata.status && respdata.customerProfiles) {
+        setCustomerProfile(respdata.customerProfiles);
+      } else {
+        console.log('No profiles found in response:', respdata);
+      }
+    })
+    .catch((error) => {
+      console.log('Error fetching profiles', error);
+    });
+  }, []);
+
+  return (
+    <>
+      <NavvBarr />
+      <center><h1 className="mt-4">Customer Profile Information</h1></center>
+      <Container className="mt-4">
+        <div className="table-responsive">
+          <Table striped bordered hover responsive>
+            <thead>
+              <tr style={{ textAlign: "center" }}>
+                <th>S.No</th>
+                <th>Email Id</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Address</th>
+                <th>Village</th>
+                <th>City</th>
+                <th>Pin Code</th>
+                <th>Info</th>
+              </tr>
+            </thead>
+            <tbody>
+              {customerProfile && customerProfile.map((profile, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{profile.email}</td>
+                  <td>{profile.name}</td>
+                  <td>{profile.contact}</td>
+                  <td>{profile.address}</td>
+                  <td>{profile.village}</td>
+                  <td>{profile.city}</td>
+                  <td>{profile.pin}</td>
+                  <td>{profile.info}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+      </Container>
+    </>
+  );
 }
 
-export default ManageGrower;
+export default ManageCustomer;
+

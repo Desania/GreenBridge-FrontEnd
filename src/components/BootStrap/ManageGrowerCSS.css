@@ -1,0 +1,29 @@
+/* ManageGrower.css */
+
+/* Ensure the table is responsive on smaller screens */
+.table-responsive {
+    overflow-x: auto;
+  }
+  
+  /* Adjust padding and margins for smaller screens */
+  @media (max-width: 992px) {
+    .table th, .table td {
+      font-size: 0.875rem;
+      padding: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .table th, .table td {
+      font-size: 0.75rem;
+      padding: 0.25rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .table th, .table td {
+      font-size: 0.625rem;
+      padding: 0.25rem;
+    }
+  }
+  

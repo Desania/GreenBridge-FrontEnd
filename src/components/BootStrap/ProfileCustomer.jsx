@@ -9,6 +9,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import NavvBarr from "../BootStrap/NavvBarr";
 import baseURL from '../config/apiConfig';
+import "./ProfileCustomerCSS.css"
+import { Container} from 'react-bootstrap';
 
 function ProfileCustomer() {
     const navigate = useNavigate();
@@ -101,75 +103,73 @@ function ProfileCustomer() {
     return (
         <>
             <NavvBarr />
-            Email Id : {eid}
-            <div style={{ width: "1100px", margin: "auto", border: "1px solid gray", marginTop: "20px", padding: "30px" }}>
+            <Container className="mt-4">
+                <h2 className="text-center mb-4">Create Profile</h2>
                 <Form>
-                    <div>
-                        <center><h1><b>Create Profile</b></h1></center>
-                    </div>
-                    <br /><br />
-                    <p>
-                        <center><img src={previmg} height="100px" width="100px" alt="" style={{ marginRight: "0px", marginLeft: "0px" }} /></center>
-                        &nbsp; &nbsp;
-                    </p>
-                    <center>Upload your pic <input type="file" name="ppic" onChange={doUpdatePic} /></center>
+                    <center>
+                        <img src={previmg} height="100px" width="100px" alt="" style={{ marginBottom: "20px" }} />
+                    </center>
+                    <center>
+                        <Form.Label>Upload your pic</Form.Label>
+                        <Form.Control type="file" name="ppic" onChange={doUpdatePic} style={{ marginBottom: "20px" }} />
+                    </center>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Label style={{ float: "left" }}>Email Id</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" style={{ height: "50px" }} name="emailid" value={obj.email} onChange={dochange} />
+                            <Form.Label>Email Id</Form.Label>
+                            <Form.Control type="email" placeholder="Enter email" name="emailid" value={obj.email} onChange={dochange} />
                         </Form.Group>
-                        <Form.Group as={Col} controlId="formGridEmail" style={{ marginTop: "30px" }}>
-                            <Button variant="success" style={{ height: "50px" }} onClick={doFetchwithAxios} disabled={!isExistingUser}>
+                        <Form.Group as={Col} controlId="formGridEmail" className="d-flex align-items-end">
+                            <Button variant="success" onClick={doFetchwithAxios} disabled={!isExistingUser}>
                                 Fetch
                             </Button>
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridPassword">
-                            <Form.Label style={{ float: "left" }}>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Name" name="name" value={obj.name} onChange={dochange} style={{ height: "50px" }} />
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" placeholder="Name" name="name" value={obj.name} onChange={dochange} />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridAddress1">
-                            <Form.Label style={{ float: "left" }}>Contact</Form.Label>
-                            <Form.Control style={{ height: "50px" }} name="contact" value={obj.contact} onChange={dochange} />
+                            <Form.Label>Contact</Form.Label>
+                            <Form.Control name="contact" value={obj.contact} onChange={dochange} />
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridAddress1">
-                            <Form.Label style={{ float: "left" }}>Address</Form.Label>
-                            <Form.Control style={{ height: "50px" }} name="address" value={obj.address} onChange={dochange} />
+                            <Form.Label>Address</Form.Label>
+                            <Form.Control name="address" value={obj.address} onChange={dochange} />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridAddress2">
-                            <Form.Label style={{ float: "left" }}>Village</Form.Label>
-                            <Form.Control style={{ height: "50px" }} name="village" value={obj.village} onChange={dochange} />
+                            <Form.Label>Village</Form.Label>
+                            <Form.Control name="village" value={obj.village} onChange={dochange} />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridAddress2">
-                            <Form.Label style={{ float: "left" }}>City</Form.Label>
-                            <Form.Control style={{ height: "50px" }} name="city" value={obj.city} onChange={dochange} />
+                            <Form.Label>City</Form.Label>
+                            <Form.Control name="city" value={obj.city} onChange={dochange} />
                         </Form.Group>
                     </Row>
-                    <Form.Group as={Col} controlId="formGridAddress1">
-                        <Form.Label style={{ float: "left" }}>Pin Code</Form.Label>
-                        <Form.Control style={{ height: "50px" }} name="pin" value={obj.pin} onChange={dochange} />
+                    <Form.Group as={Col} controlId="formGridAddress1" className="mb-3">
+                        <Form.Label>Pin Code</Form.Label>
+                        <Form.Control name="pin" value={obj.pin} onChange={dochange} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label style={{ float: "left" }}>More Info</Form.Label>
+                        <Form.Label>More Info</Form.Label>
                         <Form.Control as="textarea" rows={3} name="info" value={obj.info} onChange={dochange} />
                     </Form.Group>
                     <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formGridEmail" style={{ marginTop: "30px" }}>
-                            <Button variant="success" style={{ height: "50px" }} onClick={doSavewithAxios} disabled={isExistingUser}>
+                        <Form.Group as={Col} controlId="formGridEmail">
+                            <Button variant="success" onClick={doSavewithAxios} disabled={isExistingUser}>
                                 Submit
                             </Button>
                         </Form.Group>
-                        <Form.Group as={Col} controlId="formGridEmail" style={{ marginTop: "30px" }}>
-                            <Button variant="success" style={{ height: "50px" }} onClick={doUpdate} disabled={!isExistingUser}>
+                        <Form.Group as={Col} controlId="formGridEmail">
+                            <Button variant="success" onClick={doUpdate} disabled={!isExistingUser}>
                                 Update
                             </Button>
                         </Form.Group>
                     </Row>
                 </Form>
-            </div>
+            </Container>
         </>
     );
 }

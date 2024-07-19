@@ -1,0 +1,11 @@
+/* ViewListProducts.css */
+@media (max-width: 768px) {
+    .table {
+      font-size: 14px;
+    }
+  
+    .table th, .table td {
+      padding: 8px;
+    }
+  }
+  

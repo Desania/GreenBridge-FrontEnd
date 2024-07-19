@@ -1,0 +1,53 @@
+/* DashAdmin.css */
+
+/* Container to center content and manage spacing */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+  
+  /* Flex container for cards */
+  .d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  /* Card item styling */
+  .card-item {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 992px) {
+    .card-item {
+      flex: 1 1 calc(50% - 1rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-item {
+      flex: 1 1 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .text-success {
+      font-size: 1.5rem;
+    }
+  
+    .fw-bold {
+      font-weight: bold;
+    }
+  
+    .fs-3 {
+      font-size: 1.25rem;
+    }
+  
+    .chart-container {
+      margin: 0;
+    }
+  }
+  
